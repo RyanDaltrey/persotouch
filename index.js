@@ -4,4 +4,5 @@ const CategoriesRoutes = require ("./Routes/CategoriesRoutes");
 
 app.use(express.json());
 app.use("/accueil" , CategoriesRoutes);
+
 module.exports = app;
