@@ -22,7 +22,7 @@ Categories.init ({
 }, {
     sequelize,
     modelName : "Categories",
-    tableName : "persotouch",
+    tableName : "categories",
     timestamps : false,
 })
 
