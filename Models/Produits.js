@@ -8,6 +8,7 @@ class Produits extends Model {
 Produits.init ({
     id_pro : {
         type : DataTypes.INTEGER,
+        primaryKey : true,
         autoIncrement : true
     },
     nom_pro : {
@@ -33,7 +34,7 @@ Produits.init ({
     id_cat : {
         type : DataTypes.INTEGER,
         allowNull: false
-    };
+    }
 
 }, {
     sequelize,
