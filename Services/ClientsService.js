@@ -13,6 +13,13 @@ class ClientsService {
     async addClients(clientdata){
         return await Clients.create(clientdata);
     }
+
+    async updateClients(clientID, client){
+        return await Clients.update (client,{
+            where : {id_client : clientID},
+            individualHooks : true
+        })
+    }
 }
 
 module.exports = new ClientsService();
