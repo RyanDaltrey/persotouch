@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 const Clients = require ("../Models/Clients");
 
 class ClientsService {
@@ -18,6 +19,12 @@ class ClientsService {
         return await Clients.update (client,{
             where : {id_client : clientID},
             individualHooks : true
+        })
+    }
+
+    async  deleteClients(clientID,){
+        return await Clients.destroy({
+            where : {id_client : clientID}
         })
     }
 }
