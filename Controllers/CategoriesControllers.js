@@ -16,8 +16,18 @@ class CategoriesController{
             const categorie = await CategoriesService.getCategoriesByID(request.params.id);
             result.json(categorie)
         } catch (error) {
-            result.json(500)
+            result.status(500)
             result.json ({error : "Une erreur est survenue lors de la récupération des catégories par ID."})
+        }
+    }
+
+    async addCategories (request,result){
+        try { 
+            const categorie = await CategoriesService.addCategories(request.body);
+            result.json(categorie);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de l'ajout d'une categorie."});
         }
     }
 }
