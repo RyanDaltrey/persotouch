@@ -1,3 +1,4 @@
+const ClientsService = require("../Services/ClientsService");
 const Clients = require ("../Services/ClientsService");
 
 class ClientsControllers{
@@ -19,6 +20,16 @@ class ClientsControllers{
         } catch (error) {
             result.status(500)
             result.json({error : "Une erreur est survenue lors de la récupération de clients par ID."})
+        }
+    }
+
+    async addClients(request,result){
+        try {
+            const client = await Clients.addClients(request.body)
+            result.json(client);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de l'ajout du client."})
         }
     }
 }
