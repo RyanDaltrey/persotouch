@@ -32,6 +32,16 @@ class ClientsControllers{
             result.json({error : "Une erreur est survenue lors de l'ajout du client."})
         }
     }
+
+    async updateClients(request,result){
+        try {
+            const client = await Clients.updateClients(request.params.id, request.body)
+            result.json(client);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la mise a jour du client."})
+        }
+    }
 }
 
 module.exports = new ClientsControllers();
