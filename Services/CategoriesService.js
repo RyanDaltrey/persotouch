@@ -21,8 +21,11 @@ class CategoriesService {
         })
     }
 
+    async deleteCategories(categoriesID){
+        return await Categories.destroy ({
+            where : { id_cat : categoriesID}
+        })
+    }
 
 }
-
-
 module.exports = new CategoriesService();
