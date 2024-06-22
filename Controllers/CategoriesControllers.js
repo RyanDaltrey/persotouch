@@ -40,6 +40,16 @@ class CategoriesController{
             result.json ({error : "Une erreur est survenue lors de la mise a jour de la catégorie."})
         }
     }
+
+    async deleteCategories(request, result){
+        try {
+            const categorie = await CategoriesService.deleteCategories(request.params.id)
+            result.json({message : "La catégorie vient d'etre supprimée."})
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la supression de catégorie."})
+        }
+    }
 }
 
 module.exports = new CategoriesController();
