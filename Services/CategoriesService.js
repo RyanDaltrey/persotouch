@@ -7,8 +7,12 @@ class CategoriesService {
     }
 
     async getCategoriesByID(categoriesID){
-        return await Categories.findByPk(categoriesID)
+        return await Categories.findByPk(categoriesID);
+    }
+    async addCategories(categoriedata){
+        return await Categories.create(categoriedata)
     }
 }
+
 
 module.exports = new CategoriesService();
