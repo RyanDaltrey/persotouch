@@ -5,5 +5,6 @@ const CommandeProduitsControllers = require ("../Controllers/CommandeProduitsCon
 router.get("/", (req,res) => CommandeProduitsControllers.getAllCommandeProduits(req,res));
 router.get("/:id" , (req,res) => CommandeProduitsControllers.getCommandeProduitsByID(req,res));
 router.post("/" , (req,res) => CommandeProduitsControllers.addCommandeProduits(req,res));
+router.patch("/:id", (req,res) => CommandeProduitsControllers.updateCommandeProduis(req,res));
 
 module.exports = router;
