@@ -12,5 +12,15 @@ class CommandeProduitsControllers{
         }
 
     }
+
+    async getCommandeProduitsByID(request, result){
+        try {
+            const commande_produits = await CommandeProduitsService.getAllCommandeProduitsbyID(request.params.id)
+            result.json(commande_produits);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la récupération des commande produits par ID."})
+        }
+    }
 }
 module.exports = new CommandeProduitsControllers();
