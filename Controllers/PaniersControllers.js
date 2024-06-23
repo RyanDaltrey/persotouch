@@ -21,5 +21,15 @@ class PaniersControllers {
             result.json({error : "Une erreur est survenue lors de la récupération du panier par ID."})
         }
     }
+
+    async addPaniers(request, result){
+        try {
+            const paniers = await PaniersService.addPaniers(request.body)
+            result.json(paniers);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de l'ajout du panier."})
+        }
+    }
 }
 module.exports = new PaniersControllers();
