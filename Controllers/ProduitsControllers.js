@@ -31,5 +31,15 @@ class ProduitsControllers {
             result.json({ error : "Une erreur est survenue lors de l'ajout du produit"})
         }
     }
+
+    async updateProduits(request, result){
+        try {
+            const produits = await ProduitsServices.updateProduits(request.params.id, request.body)
+            result.json(produits);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la mise a jour du produit."})
+        }
+    }
 }
 module.exports = new ProduitsControllers();
