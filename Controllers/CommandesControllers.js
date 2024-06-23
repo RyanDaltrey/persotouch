@@ -12,3 +12,5 @@ class CommandesControllers {
         }
     }
 }
+
+module.exports = new CommandesControllers();
