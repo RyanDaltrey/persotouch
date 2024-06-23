@@ -13,5 +13,12 @@ class CommandesService {
     async addCommandes(commandedata){
         return await Commandes.create(commandedata);
     }
+
+    async updateCommandes(commandesID, commandes){
+        return await Commandes.update(commandes, {
+            where : {id_com : commandesID},
+            individualHooks : true
+        })
+    }
 }
 module.exports = new CommandesService();
