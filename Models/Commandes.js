@@ -8,7 +8,7 @@ class Commandes extends Model {
 Commandes.init ({
     id_com : {
         type : DataTypes.INTEGER,
-        primarykey : true,
+        primaryKey : true,
         autoIncrement : true
     },
     date_commande : {

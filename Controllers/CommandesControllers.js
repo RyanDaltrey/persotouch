@@ -1,4 +1,4 @@
-const CommandesService = require ("../Services/Commandes.Service");
+const CommandesService = require ("../Services/CommandesService");
 
 class CommandesControllers {
 
