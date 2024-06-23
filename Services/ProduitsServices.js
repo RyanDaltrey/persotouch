@@ -20,5 +20,11 @@ class ProduitsServices {
             individualHooks : true
         })
     }
+
+    async deleteProduits(produitsID){
+        return await Produits.destroy({
+            where : {id_pro : produitsID}
+        })
+    }
 }
 module.exports = new ProduitsServices();
