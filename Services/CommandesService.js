@@ -20,5 +20,11 @@ class CommandesService {
             individualHooks : true
         })
     }
+
+    async deleteCommandes(commandesID){
+        return await Commandes.destroy({
+            where : {id_com : commandesID}
+        })
+    }
 }
 module.exports = new CommandesService();
