@@ -12,3 +12,4 @@ class ProduitsControllers {
         }
     }
 }
+module.exports = new ProduitsControllers();
