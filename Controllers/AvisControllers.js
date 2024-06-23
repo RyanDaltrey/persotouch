@@ -14,7 +14,7 @@ class AvisController{
 
     async getAvisByID (request, result){
         try {
-            const avis = AvisService.getAvisByID(request.params.id)
+            const avis = await AvisService.getAvisByID(request.params.id)
             result.json(avis);
         } catch (error) {
             result.status(500)
