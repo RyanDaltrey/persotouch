@@ -2,7 +2,7 @@ const ProduitsServices = require ("../Services/ProduitsServices");
 
 class ProduitsControllers {
 
-    async getAllControllers(request, result){
+    async getAllProduits(request, result){
         try {
             const produits = await ProduitsServices.getAllProduits()
             result.json(produits);
