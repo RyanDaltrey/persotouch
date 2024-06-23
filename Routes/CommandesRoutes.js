@@ -6,5 +6,6 @@ router.get("/", (req,res) => CommandesControllers.getAllControllers(req,res));
 router.get("/:id", (req,res) => CommandesControllers.getCommandesByID(req,res));
 router.post("/", (req,res) => CommandesControllers.addCommandes(req, res));
 router.patch("/:id", (req, res) => CommandesControllers.updateCommandes(req, res));
+router.delete("/:id" , (req, res) => CommandesControllers.deleteCommandes(req,res));
 
 module.exports = router;
