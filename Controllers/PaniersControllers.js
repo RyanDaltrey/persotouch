@@ -41,5 +41,15 @@ class PaniersControllers {
             result.json({error : "Une erreur est survenue lors de la mise a jour du panier."})
         }
     }
+
+    async deletePaniers(request, result){
+        try {
+            const paniers = await PaniersService.deletePaniers(request.params.id)
+            result.json({message : "Le panier vient d'etre supprimé."})
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la suppression"})
+        }
+    }
 }
 module.exports = new PaniersControllers();
