@@ -9,6 +9,10 @@ class AvisService {
     async getAvisByID(avisID){
         return await Avis.findByPk(avisID);
     }
+
+    async addAvis(avisdata){
+        return await Avis.create(avisdata);
+    }
 }
 
 module.exports = new AvisService;
