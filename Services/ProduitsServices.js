@@ -13,5 +13,12 @@ class ProduitsServices {
     async addProduits(produitdata){
         return await Produits.create(produitdata);
     }
+
+    async updateProduits(produitsID, produits){
+        return await Produits.update(produits, {
+            where : { id_pro : produitsID},
+            individualHooks : true
+        })
+    }
 }
 module.exports = new ProduitsServices();
