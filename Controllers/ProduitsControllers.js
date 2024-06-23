@@ -41,5 +41,15 @@ class ProduitsControllers {
             result.json({error : "Une erreur est survenue lors de la mise a jour du produit."})
         }
     }
+
+    async deleteProduits(request, result){
+        try {
+            const produit = await ProduitsServices.deleteProduits(request.params.id)
+            result.json({message : "Le produit a bien été supprimé."})
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la supression du produit."})
+        }
+    }
 }
 module.exports = new ProduitsControllers();
