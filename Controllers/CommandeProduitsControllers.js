@@ -43,7 +43,7 @@ class CommandeProduitsControllers{
         }
     }
 
-    async CommandeProduitsService(request,result){
+    async deleteCommandeProduits(request,result){
         try {
             const commande_produits = await CommandeProduitsService.deleteCommandeProduits(request.params.id)
             result.json({message : "Le récapitulatif de la commande vient d'etre supprimé."})
