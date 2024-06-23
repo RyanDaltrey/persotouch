@@ -41,5 +41,15 @@ class AvisController{
             result.json({error : "Une erreur est survenue lors de la mise a jour de l'avis."})
         }
     }
+
+    async deleteAvis (request, result){
+        try {
+            const avis = await AvisService.deleteAvis(request.params.id)
+            result.json({message : "L'avis vient d'etre supprimé."})
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la supression de l'avis"})
+        }
+    }
 }
 module.exports = new AvisController();
