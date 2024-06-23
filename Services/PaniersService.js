@@ -20,5 +20,11 @@ class PaniersService {
             individualHooks : true
         })
     }
+
+    async deletePaniers(paniersID){
+        return await Paniers.destroy({
+            where : {id_panier : paniersID}
+        })
+    }
 }
 module.exports = new PaniersService();
