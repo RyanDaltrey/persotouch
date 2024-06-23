@@ -41,6 +41,16 @@ class CommandesControllers {
             result.json({error : "Une erreur est survenue lors de la mise a jour de la commande."})
         }
     }
+
+    async deleteCommandes (request, result){
+        try {
+            const commandes = await CommandesService.deleteCommandes(request.params.id)
+            result.json({message : "Votre commande a bien ete supprimé."})
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la supression de commandes."})
+        }
+    }
 }
 
 module.exports = new CommandesControllers();
