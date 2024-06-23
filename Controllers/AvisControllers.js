@@ -11,5 +11,15 @@ class AvisController{
             result.json({ error : "Une erreur est survenue lors de la récupération des avis."})
         }
     }
+
+    async getAvisByID (request, result){
+        try {
+            const avis = AvisService.getAvisByID(request.params.id)
+            result.json(avis);
+        } catch (error) {
+            result.status(500)
+            result.json({ error : "Une erreur est survenue lors de la récupération d'un avis par ID."})
+        }
+    }
 }
 module.exports = new AvisController();
