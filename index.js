@@ -5,6 +5,7 @@ const ClientsRoutes = require ("./Routes/ClientsRoutes");
 const AvisRoutes = require ("./Routes/AvisRoutes");
 const CommandesRoutes = require ("./Routes/CommandesRoutes");
 const ProduitsRoutes = require ("./Routes/ProduitsRoutes");
+const CommandeProduitsRoutes = require("./Routes/CommandeProduitsRoutes");
 
 
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use("/clients" , ClientsRoutes);
 app.use("/avis", AvisRoutes);
 app.use("/commandes", CommandesRoutes);
 app.use("/produits", ProduitsRoutes);
+app.use("/commande_produits", CommandeProduitsRoutes);
 
 
 
