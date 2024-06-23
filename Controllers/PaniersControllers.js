@@ -34,7 +34,7 @@ class PaniersControllers {
 
     async updatePaniers(request, result){
         try {
-            const paniers = await PaniersService.updatePaniers(request.params.id , params.body)
+            const paniers = await PaniersService.updatePaniers(request.params.id , request.body)
             result.json(paniers);
         } catch (error) {
             result.status(500)
