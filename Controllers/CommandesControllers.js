@@ -31,6 +31,16 @@ class CommandesControllers {
             result.json({error : "Une erreur est survenue lors de l'ajout de la commande."})
         }
     }
+
+    async updateCommandes (request,result){
+        try {
+            const commandes = await CommandesService.updateCommandes(request.params.id , request.body)
+            result.json(commandes);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la mise a jour de la commande."})
+        }
+    }
 }
 
 module.exports = new CommandesControllers();
