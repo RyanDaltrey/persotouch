@@ -42,5 +42,15 @@ class CommandeProduitsControllers{
             result.json({error : "Une erreur est survenur lors de la mise a jour de commande produits."})
         }
     }
+
+    async CommandeProduitsService(request,result){
+        try {
+            const commande_produits = await CommandeProduitsService.deleteCommandeProduits(request.params.id)
+            result.json({message : "Le récapitulatif de la commande vient d'etre supprimé."})
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la suppression de commande produits."})
+        }
+    }
 }
 module.exports = new CommandeProduitsControllers();
