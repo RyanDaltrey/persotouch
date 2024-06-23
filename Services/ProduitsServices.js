@@ -5,5 +5,9 @@ class ProduitsServices {
     async getAllProduits(){
         return await Produits.findAll();
     }
+
+    async getProduitsByID(produitsID){
+        return await Produits.findByPk(produitsID);
+    }
 }
 module.exports = new ProduitsServices();
