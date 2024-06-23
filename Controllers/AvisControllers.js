@@ -12,3 +12,4 @@ class AvisController{
         }
     }
 }
+module.exports = new AvisController();
