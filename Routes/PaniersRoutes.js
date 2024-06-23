@@ -6,5 +6,6 @@ router.get("/", (req,res) => PaniersControllers.getAllPaniers(req,res));
 router.get("/:id", (req,res) => PaniersControllers.getPaniersByID(req,res));
 router.post("/", (req,res) => PaniersControllers.addPaniers(req,res));
 router.patch("/:id", (req,res) => PaniersControllers.updatePaniers(req,res));
+router.delete("/:id", (req,res) => PaniersControllers.deletePaniers(req,res));
 
 module.exports = router;
