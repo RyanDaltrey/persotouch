@@ -32,5 +32,15 @@ class CommandeProduitsControllers{
             result.json({error : "Une erreur est survenue lors de l'ajout du commande produits."})
         }
     }
+
+    async updateCommandeProduis(request,result){
+        try {
+            const commande_produits = await CommandeProduitsService.updateCommandeProduits(request.params.id , request.body)
+            result.json(commande_produits);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenur lors de la mise a jour de commande produits."})
+        }
+    }
 }
 module.exports = new CommandeProduitsControllers();
