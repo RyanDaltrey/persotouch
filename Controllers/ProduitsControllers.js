@@ -24,7 +24,7 @@ class ProduitsControllers {
 
     async addProduits(request,result){
         try {
-            const produits = await ProduitsServices.addProduits(request.params.id , request.body)
+            const produits = await ProduitsServices.addProduits(request.body)
             result.json(produits);
         } catch (error) {
             result.status(500)

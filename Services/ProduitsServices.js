@@ -11,7 +11,7 @@ class ProduitsServices {
     }
 
     async addProduits(produitdata){
-        return await Produits.update(produitdata);
+        return await Produits.create(produitdata);
     }
 }
 module.exports = new ProduitsServices();
