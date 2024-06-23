@@ -31,5 +31,15 @@ class AvisController{
             result.json({error : "Une erreur est survenue lors de l'ajout de votre avis"})
         }
     }
+
+    async updateAvis (request, result){
+        try {
+            const avis = await AvisService.updateAvis(request.params.id , request.body)
+            result.json(avis);
+        } catch (error) {
+            result.status(500)
+            result.json({error : "Une erreur est survenue lors de la mise a jour de l'avis."})
+        }
+    }
 }
 module.exports = new AvisController();
