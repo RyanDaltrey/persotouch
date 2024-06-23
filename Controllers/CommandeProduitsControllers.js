@@ -33,7 +33,7 @@ class CommandeProduitsControllers{
         }
     }
 
-    async updateCommandeProduis(request,result){
+    async updateCommandeProduits(request,result){
         try {
             const commande_produits = await CommandeProduitsService.updateCommandeProduits(request.params.id , request.body)
             result.json(commande_produits);
