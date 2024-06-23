@@ -9,5 +9,9 @@ class CommandesService {
     async getCommandesByID(commandesID){
         return await Commandes.findByPk(commandesID);
     }
+
+    async addCommandes(commandedata){
+        return await Commandes.create(commandedata);
+    }
 }
 module.exports = new CommandesService();
