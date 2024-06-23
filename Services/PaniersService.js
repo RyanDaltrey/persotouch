@@ -10,8 +10,15 @@ class PaniersService {
         return await Paniers.findByPk(paniersID);
     }
 
-    async addPaniers (paniersData){
+    async addPaniers(paniersData){
         return await Paniers.create(paniersData);
+    }
+
+    async updatePaniers(paniersID, paniers){
+        return await Paniers.update(paniers, {
+            where : {id_panier : paniersID},
+            individualHooks : true
+        })
     }
 }
 module.exports = new PaniersService();
