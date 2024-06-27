@@ -49,6 +49,6 @@ Produits.init ({
 });
 
 Categories.hasMany(Produits, {as : "produitsFK" , foreignKey : "id_cat"});
-Produits.belongsTo(Categories, {as :"categoriesFK" , foreignKey : "id_pro"});
+Produits.belongsTo(Categories, {as :"categoriesFK" , foreignKey : "id_cat"});
    
 module.exports = Produits;

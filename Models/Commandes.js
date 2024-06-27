@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../Config/Sequelize");
+const Clients = require("./Clients");
 
 class Commandes extends Model {
 
@@ -33,5 +34,8 @@ Commandes.init ({
     tableName : "commandes",
     timestamps : false,
 }); 
+
+Clients.hasMany(Commandes, {as : "commandesFK" , foreignKey : "id_client"});
+Commandes.belongsTo(Clients, {as : "clientsComFK", foreignKey : "id_client"});
 
 module.exports = Commandes;

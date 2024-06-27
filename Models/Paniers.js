@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require ('../Config/Sequelize');
+const Produits = require ('./Produits');
+const Clients = require ("./Clients");
 
 class Paniers extends Model {
 
@@ -37,5 +39,11 @@ Paniers.init ({
     tableName : "panier",
     timestamps : false,
 });
+
+Paniers.hasMany(Produits, {as : "produitsFK", foreignKey : "id_pro"});
+Produits.belongsTo(Paniers, {as : "paniersFK", foreignKey : "id_pro"});
+
+Clients.hasMany(Paniers, {as : "paniersClientFK", foreignKey : "id_client"});
+Paniers.belongsTo(Clients, {as : "clientsFK" , foreignKey : "id_client"});
 
 module.exports = Paniers;

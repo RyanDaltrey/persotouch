@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require ("../Config/Sequelize");
+const Produits = require ("./Produits");
+const Clients = require ("./Clients");
 
 class Avis extends Model {
 
@@ -45,5 +47,11 @@ Avis.init ({
     tableName : "avis",
     timestamps : false,
 });
+
+Produits.hasMany(Avis, { as : "avisProFK" , foreignKey : "id_pro"});
+Avis.belongsTo(Produits, { as : "produitsAvisFK" , foreignKey : "id_pro"});
+
+Clients.hasMany(Avis , { as : "avisClientsFK" , foreignKey : "id_client"});
+Avis.belongsTo(Clients, { as : "clientsAvisFK", foreignKey : "id_client"});
 
 module.exports = Avis;
