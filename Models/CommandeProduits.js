@@ -17,11 +17,19 @@ CommandeProduits.init ({
     },
     id_com : {
         type : DataTypes.INTEGER,
-        allowNull : false
+        allowNull : false, 
+        references : {
+            model : "CommandeProduits",
+            key : "id_com"
+        }
     },
     id_pro : {
         type : DataTypes.INTEGER,
-        allowNull : false
+        allowNull : false, 
+        references : {
+            model : "CommandeProduits",
+            key : "id_pro"
+        }
     }
 }, {
     sequelize, 
