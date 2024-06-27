@@ -22,8 +22,26 @@ class AutheticateController{
             return json({token : token});
         } catch (error) {
             result.status(401)
-            result.json({error : "Mot de pass ou email incorrect"})
+            result.json({error : "Mot de passe ou email incorrect"})
         }
+    }
+
+    authenticateToken(request, result,next){
+        const authHeader = request.headers['authorization'];
+        const token = authHeader && authHeader.split(' ')[1];
+
+        if(!token){
+            result.status(401);
+            result.json({error : "Vous n'avez pas access a cette route."});
+        }
+        jwt.verify(token, config.SECRET, (error, user) => {
+            if (error){
+                result.status(401);
+                return result.json({error : "Votre token n'est pas valide"});
+            }
+            request.user = user;
+            next();
+        })
     }
 }
 
