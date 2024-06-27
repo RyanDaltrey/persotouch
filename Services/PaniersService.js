@@ -3,7 +3,7 @@ const Paniers = require("../Models/Paniers");
 class PaniersService {
 
     async getAllPaniers(){
-        return await Paniers.findAll();
+        return await Paniers.findAll({ include : ["clientsFK" , "produitsFK"]});
     }
 
     async getPaniersByID(paniersID){

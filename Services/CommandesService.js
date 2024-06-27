@@ -3,7 +3,7 @@ const Commandes = require ("../Models/Commandes");
 class CommandesService {
 
     async getAllCommandes(){
-        return await Commandes.findAll();
+        return await Commandes.findAll({ include : "clientsComFK"});
     }
 
     async getCommandesByID(commandesID){

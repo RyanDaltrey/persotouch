@@ -4,7 +4,7 @@ const Clients = require ("../Models/Clients");
 class ClientsService {
 
     async getAllClients(){
-        return await Clients.findAll();
+        return await Clients.findAll({ include : "commandesFK"});
     }
 
     async getClientsByID(clientID){

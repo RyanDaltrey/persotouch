@@ -3,7 +3,7 @@ const Produits = require ("../Models/Produits");
 class ProduitsServices {
  
     async getAllProduits(){
-        return await Produits.findAll();
+        return await Produits.findAll({ include : "categoriesFK"});
     }
 
     async getProduitsByID(produitsID){

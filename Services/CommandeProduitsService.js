@@ -1,9 +1,10 @@
+const { InvalidConnectionError } = require('sequelize');
 const CommandeProduits  = require('../Models/CommandeProduits');
 
 class CommandeProduitsService {
 
     async getAllCommandeProduits(){
-        return await CommandeProduits.findAll();
+        return await CommandeProduits.findAll({include : ["commandesComProFK" , "produitsComProFK"]});
     }
 
     async getAllCommandeProduitsbyID(commandeProduitsID){
