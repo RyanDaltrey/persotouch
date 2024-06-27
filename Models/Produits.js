@@ -33,7 +33,11 @@ Produits.init ({
     },
     id_cat : {
         type : DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references : {
+            model : "Categories",
+            key : "id_cat"
+        }
     }
 
 }, {
