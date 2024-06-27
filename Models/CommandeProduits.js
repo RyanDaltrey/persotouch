@@ -19,7 +19,7 @@ CommandeProduits.init ({
         type : DataTypes.INTEGER,
         allowNull : false, 
         references : {
-            model : "CommandeProduits",
+            model : "Commandes",
             key : "id_com"
         }
     },
@@ -27,7 +27,7 @@ CommandeProduits.init ({
         type : DataTypes.INTEGER,
         allowNull : false, 
         references : {
-            model : "CommandeProduits",
+            model : "Produits",
             key : "id_pro"
         }
     }

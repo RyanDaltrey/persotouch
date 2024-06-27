@@ -15,7 +15,7 @@ Avis.init ({
         type : DataTypes.INTEGER,
         allowNull : false,
         references : {
-            model : "Avis",
+            model : "Clients",
             key :"id_client"
         }
     },
@@ -23,7 +23,7 @@ Avis.init ({
         type : DataTypes.INTEGER,
         allowNull : false,
         references : {
-            model : "Avis",
+            model : "Produits",
             key : "id_pro"
         }
     },
