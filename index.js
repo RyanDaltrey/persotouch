@@ -7,7 +7,7 @@ const CommandesRoutes = require ("./Routes/CommandesRoutes");
 const ProduitsRoutes = require ("./Routes/ProduitsRoutes");
 const CommandeProduitsRoutes = require("./Routes/CommandeProduitsRoutes");
 const PaniersRoutes = require("./Routes/PaniersRoutes");
-
+const AuthenticateRoutes = require ("./Routes/AuthenticateRoutes");
 
 app.use(express.json());
 app.use("/accueil" , CategoriesRoutes);
@@ -17,6 +17,7 @@ app.use("/commandes", CommandesRoutes);
 app.use("/produits", ProduitsRoutes);
 app.use("/commande_produits", CommandeProduitsRoutes);
 app.use("/paniers", PaniersRoutes);
+app.use("/auth" , AuthenticateRoutes);
 
 
 
