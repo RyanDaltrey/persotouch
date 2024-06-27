@@ -8,15 +8,16 @@ const ProduitsRoutes = require ("./Routes/ProduitsRoutes");
 const CommandeProduitsRoutes = require("./Routes/CommandeProduitsRoutes");
 const PaniersRoutes = require("./Routes/PaniersRoutes");
 const AuthenticateRoutes = require ("./Routes/AuthenticateRoutes");
+const AuthenticateControllers = require ("./Controllers/AuthenticateControllers");
 
 app.use(express.json());
 app.use("/accueil" , CategoriesRoutes);
-app.use("/clients" , ClientsRoutes);
+app.use("/clients" , AuthenticateControllers.authenticateToken, ClientsRoutes);
 app.use("/avis", AvisRoutes);
-app.use("/commandes", CommandesRoutes);
+app.use("/commandes", AuthenticateControllers.authenticateToken, CommandesRoutes);
 app.use("/produits", ProduitsRoutes);
-app.use("/commande_produits", CommandeProduitsRoutes);
-app.use("/paniers", PaniersRoutes);
+app.use("/commande_produits", AuthenticateControllers.authenticateToken, CommandeProduitsRoutes);
+app.use("/paniers", AuthenticateControllers.authenticateToken, PaniersRoutes);
 app.use("/auth" , AuthenticateRoutes);
 
 
