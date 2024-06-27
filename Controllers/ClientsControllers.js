@@ -46,7 +46,7 @@ class ClientsControllers{
     async deleteClients(request,result){
         try {
             const client = await Clients.deleteClients(request.params.id)
-            result.json({ message : "Le client vient d'etre sypprimé."})
+            result.json({ message : "Le client vient d'etre supprimé."})
         } catch (error) {
             result.status(500)
             result.json({error :"Une erreur est survenue lors de la supression du client."})
