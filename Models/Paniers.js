@@ -13,11 +13,19 @@ Paniers.init ({
     },
     id_client : {
         type : DataTypes.INTEGER,
-        allowNull : false
+        allowNull : false,
+        references : {
+            model : "Clients",
+            key : "id_client"
+        }
     },
     id_pro : {
         type : DataTypes.INTEGER,
-        allowNull :false
+        allowNull :false,
+        references : {
+            model : "Produits",
+            key : "id_pro"
+        }
     },
     quantite_panier : {
         type : DataTypes.INTEGER,
