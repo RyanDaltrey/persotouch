@@ -21,7 +21,11 @@ Commandes.init ({
     },
     id_client : {
         type : DataTypes.INTEGER,
-        allowNull : false
+        allowNull : false, 
+        references : {
+            model : "Clients",
+            key : "id_client"
+        }
     }
 }, {
     sequelize, 
