@@ -1,8 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require ("../Config/Sequelize");
+const sequelize = require("../Config/Sequelize");
+const bcrypt = require('bcrypt');
 
 class Clients extends Model {
-
+    async validatePassword(mdp){
+        return await bcrypt.compare(mdp, this.mdp);
+    }
 }
 
 Clients.init ({
@@ -49,6 +52,16 @@ Clients.init ({
     modelName : "Clients",
     tableName : "clients",
     timestamps : false,
+    hooks : {
+        beforeCreate : async (client) =>{
+            client.mdp = await bcrypt.hash(client.mdp, 10);
+        },
+        beforeUpdate : async (client) => {
+            if (client.changed("mdp")){
+                client.mdp = await bcrypt.hash(client.mdp, 10)
+            }
+        }
+    }
 });
 
 module.exports = Clients;
