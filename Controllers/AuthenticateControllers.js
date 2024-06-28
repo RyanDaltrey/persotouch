@@ -19,7 +19,7 @@ class AutheticateController{
         try {
             const {email, mdp} = request.body;
             const token = await AuthenticateService.login(email, mdp);
-            return json({token : token});
+            result.json({token : token});
         } catch (error) {
             result.status(401)
             result.json({error : "Mot de passe ou email incorrect"})
