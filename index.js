@@ -9,8 +9,10 @@ const CommandeProduitsRoutes = require("./Routes/CommandeProduitsRoutes");
 const PaniersRoutes = require("./Routes/PaniersRoutes");
 const AuthenticateRoutes = require ("./Routes/AuthenticateRoutes");
 const AuthenticateControllers = require ("./Controllers/AuthenticateControllers");
+const cors = require ('cors');
 
 app.use(express.json());
+app.use(cors());
 app.use("/accueil" , CategoriesRoutes);
 app.use("/clients" , AuthenticateControllers.authenticateToken, ClientsRoutes);
 app.use("/avis", AvisRoutes);

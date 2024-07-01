@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 class Clients extends Model {
     async validatePassword(mdp){
         return await bcrypt.compare(mdp, this.mdp);
+
     }
 }
 
