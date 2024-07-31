@@ -1,11 +1,11 @@
-const ClientsService = require("../Services/ClientsService");
-const Clients = require ("../Services/ClientsService");
+const ClientService = require("../Services/ClientService");
 
-class ClientsControllers{
+
+class ClientControllers{
 
     async getAllClients(request, result) {
         try {
-            const clients = await Clients.getAllClients()
+            const clients = await ClientService.getAllClients()
             result.json(clients);
         } catch (error) {
             result.status(500)
@@ -13,9 +13,9 @@ class ClientsControllers{
         }
     }
 
-    async getClientsByID(request,result){
+    async getClientByID(request,result){
         try {
-            const client = await Clients.getClientsByID(request.params.id)
+            const client = await ClientService.getClientByID(request.params.id)
             result.json(client);
         } catch (error) {
             result.status(500)
@@ -23,9 +23,9 @@ class ClientsControllers{
         }
     }
 
-    async addClients(request,result){
+    async addClient(request,result){
         try {
-            const client = await Clients.addClients(request.body)
+            const client = await ClientService.addClient(request.body)
             result.json(client);
         } catch (error) {
             result.status(500)
@@ -33,9 +33,9 @@ class ClientsControllers{
         }
     }
 
-    async updateClients(request,result){
+    async updateClient(request,result){
         try {
-            const client = await Clients.updateClients(request.params.id, request.body)
+            const client = await ClientService.updateClient(request.params.id, request.body)
             result.json(client);
         } catch (error) {
             result.status(500)
@@ -43,9 +43,9 @@ class ClientsControllers{
         }
     }
 
-    async deleteClients(request,result){
+    async deleteClient(request,result){
         try {
-            const client = await Clients.deleteClients(request.params.id)
+            const client = await ClientService.deleteClient(request.params.id)
             result.json({ message : "Le client vient d'etre supprimé."})
         } catch (error) {
             result.status(500)
@@ -54,4 +54,4 @@ class ClientsControllers{
     }
 }
 
-module.exports = new ClientsControllers();
+module.exports = new ClientControllers();

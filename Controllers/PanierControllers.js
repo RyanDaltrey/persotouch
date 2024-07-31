@@ -1,10 +1,10 @@
-const PaniersService = require ("../Services/PaniersService");
+const PanierService = require ("../Services/PanierService");
 
-class PaniersControllers {
+class PanierControllers {
     
     async getAllPaniers(request,result){
         try {
-            const paniers = await PaniersService.getAllPaniers()
+            const paniers = await PanierService.getAllPaniers()
             result.json(paniers);
         } catch (error) {
             result.status(500)
@@ -12,9 +12,9 @@ class PaniersControllers {
         }
     }
 
-    async getPaniersByID(request, result){
+    async getPanierByID(request, result){
         try {
-            const panier = await PaniersService.getPaniersByID(request.params.id)
+            const panier = await PanierService.getPanierByID(request.params.id)
             result.json(panier);
         } catch (error) {
             result.status(500)
@@ -22,29 +22,29 @@ class PaniersControllers {
         }
     }
 
-    async addPaniers(request, result){
+    async addPanier(request, result){
         try {
-            const paniers = await PaniersService.addPaniers(request.body)
-            result.json(paniers);
+            const panier = await PanierService.addPanier(request.body)
+            result.json(panier);
         } catch (error) {
             result.status(500)
             result.json({error : "Une erreur est survenue lors de l'ajout du panier."})
         }
     }
 
-    async updatePaniers(request, result){
+    async updatePanier(request, result){
         try {
-            const paniers = await PaniersService.updatePaniers(request.params.id , request.body)
-            result.json(paniers);
+            const panier = await PanierService.updatePanier(request.params.id , request.body)
+            result.json(panier);
         } catch (error) {
             result.status(500)
             result.json({error : "Une erreur est survenue lors de la mise a jour du panier."})
         }
     }
 
-    async deletePaniers(request, result){
+    async deletePanier(request, result){
         try {
-            const paniers = await PaniersService.deletePaniers(request.params.id)
+            const panier = await PanierService.deletePanier(request.params.id)
             result.json({message : "Le panier vient d'etre supprimé."})
         } catch (error) {
             result.status(500)
@@ -52,4 +52,4 @@ class PaniersControllers {
         }
     }
 }
-module.exports = new PaniersControllers();
+module.exports = new PanierControllers();

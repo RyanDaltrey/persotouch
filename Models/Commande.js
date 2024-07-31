@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../Config/Sequelize");
-const Clients = require("./Clients");
+const Clients = require("./Client");
 
 class Commandes extends Model {
 

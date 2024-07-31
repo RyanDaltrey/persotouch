@@ -1,12 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require ("../Config/Sequelize");
-const Categories = require ("./Categories");
+const Categorie = require ("./Categorie");
 
-class Produits extends Model {
+class Produit extends Model {
 
 }
 
-Produits.init ({
+Produit.init ({
     id_pro : {
         type : DataTypes.INTEGER,
         primaryKey : true,
@@ -36,19 +36,19 @@ Produits.init ({
         type : DataTypes.INTEGER,
         allowNull: false,
         references : {
-            model : "Categories",
+            model : "Categorie",
             key : "id_cat"
         }
     }
 
 }, {
     sequelize,
-    modelName : "Produits",
-    tableName : "produits",
+    modelName : "Produit",
+    tableName : "produit",
     timestamps : false,
 });
 
-Categories.hasMany(Produits, {as : "produitsFK" , foreignKey : "id_cat"});
-Produits.belongsTo(Categories, {as :"categoriesFK" , foreignKey : "id_cat"});
+Categorie.hasMany(Produit, {as : "produitsFK" , foreignKey : "id_cat"});
+Produit.belongsTo(Categorie, {as :"categoriesFK" , foreignKey : "id_cat"});
    
-module.exports = Produits;
+module.exports = Produit;

@@ -2,14 +2,14 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../Config/Sequelize");
 const bcrypt = require('bcrypt');
 
-class Clients extends Model {
+class Client extends Model {
     async validatePassword(mdp){
         return await bcrypt.compare(mdp, this.mdp);
 
     }
 }
 
-Clients.init ({
+Client.init ({
     id_client : {
         type : DataTypes.INTEGER,
         primaryKey : true,
@@ -50,8 +50,8 @@ Clients.init ({
 
 }, {
     sequelize,
-    modelName : "Clients",
-    tableName : "clients",
+    modelName : "Client",
+    tableName : "client",
     timestamps : false,
     hooks : {
         beforeCreate : async (client) =>{
@@ -65,4 +65,4 @@ Clients.init ({
     }
 });
 
-module.exports = Clients;
+module.exports = Client;

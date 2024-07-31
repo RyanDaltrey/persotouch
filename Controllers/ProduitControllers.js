@@ -1,10 +1,10 @@
-const ProduitsServices = require ("../Services/ProduitsServices");
+const ProduitServices = require ("../Services/ProduitServices");
 
-class ProduitsControllers {
+class ProduitControllers {
 
     async getAllProduits(request, result){
         try {
-            const produits = await ProduitsServices.getAllProduits()
+            const produits = await ProduitServices.getAllProduits()
             result.json(produits);
         } catch (error) {
             result.status(500)
@@ -12,9 +12,9 @@ class ProduitsControllers {
         }
     }
 
-    async getProduitsByID(request, result){
+    async getProduitByID(request, result){
         try {
-            const produit = await ProduitsServices.getProduitsByID(request.params.id)
+            const produit = await ProduitServices.getProduitByID(request.params.id)
             result.json(produit);
         } catch (error) {
             result.status(500)
@@ -22,29 +22,29 @@ class ProduitsControllers {
         }
     }
 
-    async addProduits(request,result){
+    async addProduit(request,result){
         try {
-            const produits = await ProduitsServices.addProduits(request.body)
-            result.json(produits);
+            const produit = await ProduitServices.addProduit(request.body)
+            result.json(produit);
         } catch (error) {
             result.status(500)
             result.json({ error : "Une erreur est survenue lors de l'ajout du produit"})
         }
     }
 
-    async updateProduits(request, result){
+    async updateProduit(request, result){
         try {
-            const produits = await ProduitsServices.updateProduits(request.params.id, request.body)
-            result.json(produits);
+            const produit = await ProduitServices.updateProduit(request.params.id, request.body)
+            result.json(produit);
         } catch (error) {
             result.status(500)
             result.json({error : "Une erreur est survenue lors de la mise a jour du produit."})
         }
     }
 
-    async deleteProduits(request, result){
+    async deleteProduit(request, result){
         try {
-            const produit = await ProduitsServices.deleteProduits(request.params.id)
+            const produit = await ProduitServices.deleteProduit(request.params.id)
             result.json({message : "Le produit a bien été supprimé."})
         } catch (error) {
             result.status(500)
@@ -52,4 +52,4 @@ class ProduitsControllers {
         }
     }
 }
-module.exports = new ProduitsControllers();
+module.exports = new ProduitControllers();

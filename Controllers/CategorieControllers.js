@@ -1,9 +1,9 @@
-const CategoriesService = require ('../Services/CategoriesService');
+const CategorieService = require ('../Services/CategorieService');
 
-class CategoriesController{
+class CategorieControllers{
     async getAllCategories(request, result){
         try {
-            const categories = await CategoriesService.getAllCategories();
+            const categories = await CategorieService.getAllCategories();
             result.json(categories)
         } catch (error) {
             result.status(500);
@@ -11,9 +11,9 @@ class CategoriesController{
         }
     }
 
-    async getCategoriesByID (request, result){
+    async getCategorieByID (request, result){
         try {
-            const categorie = await CategoriesService.getCategoriesByID(request.params.id);
+            const categorie = await CategorieService.getCategorieByID(request.params.id);
             result.json(categorie)
         } catch (error) {
             result.status(500)
@@ -21,9 +21,9 @@ class CategoriesController{
         }
     }
 
-    async addCategories (request,result){
+    async addCategorie (request,result){
         try { 
-            const categorie = await CategoriesService.addCategories(request.body);
+            const categorie = await CategorieService.addCategorie(request.body);
             result.json(categorie);
         } catch (error) {
             result.status(500)
@@ -31,9 +31,9 @@ class CategoriesController{
         }
     }
 
-    async updateCategories(request, result){
+    async updateCategorie(request, result){
         try {
-            const categorie = await CategoriesService.updateCategories(request.params.id , request.body);
+            const categorie = await CategorieService.updateCategorie(request.params.id , request.body);
             result.json(categorie);
         } catch (error) {
             result.status(500)
@@ -41,9 +41,9 @@ class CategoriesController{
         }
     }
 
-    async deleteCategories(request, result){
+    async deleteCategorie(request, result){
         try {
-            const categorie = await CategoriesService.deleteCategories(request.params.id)
+            const categorie = await CategorieService.deleteCategorie(request.params.id)
             result.json({message : "La catégorie vient d'etre supprimée."})
         } catch (error) {
             result.status(500)
@@ -52,4 +52,4 @@ class CategoriesController{
     }
 }
 
-module.exports = new CategoriesController();
+module.exports = new CategorieControllers();

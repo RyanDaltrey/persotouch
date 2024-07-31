@@ -1,6 +1,6 @@
-const CommandeProduitsService = require ("../Services/CommandeProduitsService");
+const CommandeProduitService = require ("../Services/CommandeProduitService");
 
-class CommandeProduitsControllers{
+class CommandeProduitControllers{
 
     async getAllCommandeProduits(request,result){
         try {
@@ -13,39 +13,39 @@ class CommandeProduitsControllers{
 
     }
 
-    async getCommandeProduitsByID(request, result){
+    async getCommandeProduitByID(request, result){
         try {
-            const commande_produits = await CommandeProduitsService.getAllCommandeProduitsbyID(request.params.id)
-            result.json(commande_produits);
+            const commandeProduit = await CommandeProduitService.getAllCommandeProduitbyID(request.params.id)
+            result.json(commandeProduit);
         } catch (error) {
             result.status(500)
             result.json({error : "Une erreur est survenue lors de la récupération des commande produits par ID."})
         }
     }
 
-    async addCommandeProduits(request,result){
+    async addCommandeProduit(request,result){
         try {
-            const commande_produits = await CommandeProduitsService.addCommandeProduits(request.body)
-            result.json(commande_produits);
+            const commandeProduit = await CommandeProduitService.addCommandeProduit(request.body)
+            result.json(commandeProduit);
         } catch (error) {
             result.status(500)
             result.json({error : "Une erreur est survenue lors de l'ajout du commande produits."})
         }
     }
 
-    async updateCommandeProduits(request,result){
+    async updateCommandeProduit(request,result){
         try {
-            const commande_produits = await CommandeProduitsService.updateCommandeProduits(request.params.id , request.body)
-            result.json(commande_produits);
+            const commandeProduit = await CommandeProduitService.updateCommandeProduit(request.params.id , request.body)
+            result.json(commandeProduit);
         } catch (error) {
             result.status(500)
             result.json({error : "Une erreur est survenur lors de la mise a jour de commande produits."})
         }
     }
 
-    async deleteCommandeProduits(request,result){
+    async deleteCommandeProduit(request,result){
         try {
-            const commande_produits = await CommandeProduitsService.deleteCommandeProduits(request.params.id)
+            const commandeProduit = await CommandeProduitService.deleteCommandeProduit(request.params.id)
             result.json({message : "Le récapitulatif de la commande vient d'etre supprimé."})
         } catch (error) {
             result.status(500)
@@ -53,4 +53,4 @@ class CommandeProduitsControllers{
         }
     }
 }
-module.exports = new CommandeProduitsControllers();
+module.exports = new CommandeProduitControllers();

@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require ('../Config/Sequelize');
-const Produits = require ('./Produits');
-const Clients = require ("./Clients");
+const Produit = require ('./Produit');
+const Client = require ("./Client");
 
-class Paniers extends Model {
+class Panier extends Model {
 
 }
 
-Paniers.init ({
+Panier.init ({
     id_panier : {
         type : DataTypes.INTEGER,
         primaryKey : true,
@@ -17,7 +17,7 @@ Paniers.init ({
         type : DataTypes.INTEGER,
         allowNull : false,
         references : {
-            model : "Clients",
+            model : "Client",
             key : "id_client"
         }
     },
@@ -25,7 +25,7 @@ Paniers.init ({
         type : DataTypes.INTEGER,
         allowNull :false,
         references : {
-            model : "Produits",
+            model : "Produit",
             key : "id_pro"
         }
     },
@@ -35,15 +35,15 @@ Paniers.init ({
     }
 }, {
     sequelize,
-    modelName : "Paniers",
+    modelName : "Panier",
     tableName : "panier",
     timestamps : false,
 });
 
-Paniers.hasMany(Produits, {as : "produitsFK", foreignKey : "id_pro"});
-Produits.belongsTo(Paniers, {as : "paniersFK", foreignKey : "id_pro"});
+Panier.hasMany(Produit, {as : "produitsFK", foreignKey : "id_pro"});
+Produit.belongsTo(Panier, {as : "paniersFK", foreignKey : "id_pro"});
 
-Clients.hasMany(Paniers, {as : "paniersClientFK", foreignKey : "id_client"});
-Paniers.belongsTo(Clients, {as : "clientsFK" , foreignKey : "id_client"});
+Client.hasMany(Panier, {as : "paniersClientFK", foreignKey : "id_client"});
+Panier.belongsTo(Client, {as : "clientsFK" , foreignKey : "id_client"});
 
-module.exports = Paniers;
+module.exports = Panier;
