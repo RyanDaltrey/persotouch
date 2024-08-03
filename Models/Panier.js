@@ -21,17 +21,9 @@ Panier.init ({
             key : "id_client"
         }
     },
-    id_pro : {
-        type : DataTypes.INTEGER,
-        allowNull :false,
-        references : {
-            model : "Produit",
-            key : "id_pro"
-        }
-    },
-    quantite_panier : {
-        type : DataTypes.INTEGER,
-        allowNull : true
+    date_creation : {
+        type : DataTypes.DATE,
+        allowNull : false
     }
 }, {
     sequelize,
