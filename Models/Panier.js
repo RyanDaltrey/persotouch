@@ -32,8 +32,7 @@ Panier.init ({
     timestamps : false,
 });
 
-Panier.hasMany(Produit, {as : "produitsFK", foreignKey : "id_pro"});
-Produit.belongsTo(Panier, {as : "paniersFK", foreignKey : "id_pro"});
+
 
 Client.hasMany(Panier, {as : "paniersClientFK", foreignKey : "id_client"});
 Panier.belongsTo(Client, {as : "clientsFK" , foreignKey : "id_client"});
