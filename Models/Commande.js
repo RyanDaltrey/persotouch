@@ -1,12 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../Config/Sequelize");
-const Clients = require("./Client");
+const Client = require("./Client");
 
-class Commandes extends Model {
+class Commande extends Model {
 
 }
 
-Commandes.init ({
+Commande.init ({
     id_com : {
         type : DataTypes.INTEGER,
         primaryKey : true,
@@ -24,18 +24,18 @@ Commandes.init ({
         type : DataTypes.INTEGER,
         allowNull : false, 
         references : {
-            model : "Clients",
+            model : "Client",
             key : "id_client"
         }
     }
 }, {
     sequelize, 
-    modelName : "Commandes",
-    tableName : "commandes",
+    modelName : "Commande",
+    tableName : "commande",
     timestamps : false,
 }); 
 
-Clients.hasMany(Commandes, {as : "commandesFK" , foreignKey : "id_client"});
-Commandes.belongsTo(Clients, {as : "clientsComFK", foreignKey : "id_client"});
+Client.hasMany(Commande, {as : "commandesFK" , foreignKey : "id_client"});
+Commande.belongsTo(Client, {as : "clientsComFK", foreignKey : "id_client"});
 
-module.exports = Commandes;
+module.exports = Commande;

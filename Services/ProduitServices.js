@@ -6,7 +6,7 @@ class ProduitServices {
         return await Produit.findAll({ include : "categoriesFK"});
     }
 
-    async getProduitByID(produitsID){
+    async getProduitByID(produitID){
         return await Produit.findByPk(produitID);
     }
 

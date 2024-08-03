@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require ("../Config/Sequelize");
-const Produits = require ("./Produits");
-const Clients = require ("./Clients");
+const Produit = require ("./Produit");
+const Client = require ("./Client");
 
 class Avis extends Model {
 
@@ -17,7 +17,7 @@ Avis.init ({
         type : DataTypes.INTEGER,
         allowNull : false,
         references : {
-            model : "Clients",
+            model : "Client",
             key :"id_client"
         }
     },
@@ -25,7 +25,7 @@ Avis.init ({
         type : DataTypes.INTEGER,
         allowNull : false,
         references : {
-            model : "Produits",
+            model : "Produit",
             key : "id_pro"
         }
     },
@@ -48,10 +48,10 @@ Avis.init ({
     timestamps : false,
 });
 
-Produits.hasMany(Avis, { as : "avisProFK" , foreignKey : "id_pro"});
-Avis.belongsTo(Produits, { as : "produitsAvisFK" , foreignKey : "id_pro"});
+Produit.hasMany(Avis, { as : "avisProFK" , foreignKey : "id_pro"});
+Avis.belongsTo(Produit, { as : "produitsAvisFK" , foreignKey : "id_pro"});
 
-Clients.hasMany(Avis , { as : "avisClientsFK" , foreignKey : "id_client"});
-Avis.belongsTo(Clients, { as : "clientsAvisFK", foreignKey : "id_client"});
+Client.hasMany(Avis , { as : "avisClientsFK" , foreignKey : "id_client"});
+Avis.belongsTo(Client, { as : "clientsAvisFK", foreignKey : "id_client"});
 
 module.exports = Avis;

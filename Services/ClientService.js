@@ -29,4 +29,4 @@ class ClientService {
     }
 }
 
-module.exports = new ClientsService();
+module.exports = new ClientService();
